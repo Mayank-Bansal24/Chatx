@@ -10,7 +10,11 @@ import { registerRoute } from "../utils/APIRoutes";
 export default function Register() {
     
   const navigate = useNavigate();
-
+  // useEffect(() => {
+  //   if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
+  //     navigate("/");
+  //   }
+  // }, []);
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (handleValidation()) {
