@@ -12,7 +12,7 @@ export default function App() {
          <Route path="/login" element={<Login /> }/>
          <Route path="/setavatar" element={<SetAvatar /> }/>
          <Route path="/chat" element={<Chat />} />
-         <Route path="/" element={<Register />} />
+         <Route path="/" element={<Chat/>} />
       </Routes>
     </BrowserRouter>
     );
