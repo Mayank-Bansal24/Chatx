@@ -11,7 +11,7 @@ export default function Login() {
     
   const navigate = useNavigate();
   useEffect(() => {
-    if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
+    if (localStorage.getItem("chat-user")) {
       navigate("/");
     }
   }, []);
@@ -29,7 +29,7 @@ export default function Login() {
       }
       if (data.status === true) {
         localStorage.setItem(
-          process.env.REACT_APP_LOCALHOST_KEY,
+          "chat-user",
           JSON.stringify(data.user)
         );
         navigate("/chat");
