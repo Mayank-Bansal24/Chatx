@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { sendMessageRoute, recieveMessageRoute } from "../utils/APIRoutes";
 
-export default function ChatContainer({ currentChat } , {socket}) {
+export default function ChatContainer({ currentChat  , socket}) {
   const [messages, setMessages] = useState([]);
   const scrollRef = useRef();
   const [arrivalMessage, setArrivalMessage] = useState(null);
@@ -57,21 +57,21 @@ export default function ChatContainer({ currentChat } , {socket}) {
     setMessages(msgs);
   };
 
-//   useEffect(() => {
-//     if (socket.current) {
-//       socket.current.on("msg-recieve", (msg) => {
-//         setArrivalMessage({ fromSelf: false, message: msg });
-//       });
-//     }
-//   }, []);
+  useEffect(() => {
+    if (socket.current) {
+      socket.current.on("msg-recieve", (msg) => {
+        setArrivalMessage({ fromSelf: false, message: msg });
+      });
+    }
+  }, []);
 
-//   useEffect(() => {
-//     arrivalMessage && setMessages((prev) => [...prev, arrivalMessage]);
-//   }, [arrivalMessage]);
+  useEffect(() => {
+    arrivalMessage && setMessages((prev) => [...prev, arrivalMessage]);
+  }, [arrivalMessage]);
 
-//   useEffect(() => {
-//     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
-//   }, [messages]);
+  useEffect(() => {
+    scrollRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   return (
     <Container>

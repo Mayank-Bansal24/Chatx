@@ -12,6 +12,7 @@ app.use(express.json());
 
 // mongoose.connect(process.env.MONGO_URL)
 app.use("/api/auth", userRoutes);
+app.use("/api/messages", messageRoutes);
 
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser : true,
@@ -30,7 +31,7 @@ const server = app.listen(process.env.PORT, () =>{
 
 const io = socket(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "*",
     credentials: true,
   },
 });
