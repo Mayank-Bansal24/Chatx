@@ -22,7 +22,7 @@ export default function SetAvatar() {
   };
 
   // useEffect(async () => {
-  //   if (!localStorage.getItem("chatx"))
+  //   if (!localStorage.getItem("chat-user"))
   //     navigate("/login");
   // }, []);
 
@@ -31,7 +31,7 @@ export default function SetAvatar() {
       toast.error("Please select an avatar", toastOptions);
     } else {
       const user = await JSON.parse(
-        localStorage.getItem("chatx")
+        localStorage.getItem("chat-user")
       );
 
       const { data } = await axios.post(`${setAvatarRoute}/${user._id}`, {
@@ -42,7 +42,7 @@ export default function SetAvatar() {
         user.isAvatarImageSet = true;
         user.avatarImage = data.image;
         localStorage.setItem(
-          "chatx",
+          "chat-user",
           JSON.stringify(user)
         );
         navigate("/");
@@ -109,7 +109,7 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 3rem;
-  background-color: #131324;
+  background-color: #006400;
   height: 100vh;
   width: 100vw;
 
