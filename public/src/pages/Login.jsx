@@ -60,7 +60,7 @@ export default function Login() {
         toastOptions
       );
       return false;
-    } else if (username.length === "") {
+    } else if (password.length === "") {
       toast.error(
         "Email and Password is needed",
         toastOptions
