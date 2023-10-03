@@ -31,20 +31,7 @@ export default function Chat() {
   useEffect ( () => {
     log()},
   []);
-    const logdata =  async () => {
-      if (!localStorage.getItem("chat-user")) {
-        navigate("/login");
-      } else {
-        setCurrentUser(
-          await JSON.parse(
-            localStorage.getItem("chat-user")
-          )
-        );
-      }
-    };
-  useEffect(() => {
-   logdata()
-  }, []);
+    
   useEffect(() => {
     if (currentUser) {
       socket.current = io(host);
